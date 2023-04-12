@@ -1,0 +1,22 @@
+{
+  "name": "kot-bot",
+  "version": "1.0.0",
+  "description": "Just a simple kot-bot helper especially for Power Forge SWGOH guild",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node core.js",
+    "deploy-commands": "node deploy-commands.js",
+    "delete-all-commands": "DELETE=1 node deploy-commands.js"
+  },
+  "keywords": [],
+  "author": "Nick Rimer",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.9.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "prettier": "^2.8.7"
+  }
+}
