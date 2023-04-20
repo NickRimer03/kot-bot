@@ -1,12 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import {
-  Client,
-  Collection,
-  Events,
-  GatewayIntentBits,
-  Partials,
-} from "discord.js";
+import { Client, Collection, Events, GatewayIntentBits, Partials } from "discord.js";
 
 export default () => {
   const acceptedUsers = process.env.PRIVILEGED_USERS.split(" ");
@@ -25,9 +19,7 @@ export default () => {
 
   for (const folder of commandFolders) {
     const commandsPath = path.join(foldersPath, folder);
-    const commandFiles = fs
-      .readdirSync(commandsPath)
-      .filter((file) => file.endsWith(".js"));
+    const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith(".js"));
 
     for (const file of commandFiles) {
       const filePath = path.join(commandsPath, file);
@@ -97,9 +89,7 @@ export default () => {
     console.log(
       `${reaction.message.author}'s message "${reaction.message.content}" gained a reaction!`
     );
-    console.log(
-      `${reaction.count} user(s) have given the same reaction to this message!`
-    );
+    console.log(`${reaction.count} user(s) have given the same reaction to this message!`);
   });
 
   client.login(process.env.BOT_TOKEN).catch((error) => console.error(error));

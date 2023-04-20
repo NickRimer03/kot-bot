@@ -9,14 +9,11 @@ export default () => {
       const { APPLICATION_ID, GUILD_ID } = process.env;
       const commands = await listCommands();
 
-      console.log(
-        `Started refreshing ${commands.length} application (/) commands.`
-      );
+      console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
-      const data = await rest.put(
-        Routes.applicationGuildCommands(APPLICATION_ID, GUILD_ID),
-        { body: commands }
-      );
+      const data = await rest.put(Routes.applicationGuildCommands(APPLICATION_ID, GUILD_ID), {
+        body: commands,
+      });
 
       // const data = await rest.put(
       //   Routes.applicationCommands(process.env.APPLICATION_ID),
@@ -25,9 +22,7 @@ export default () => {
       //   }
       // );
 
-      console.log(
-        `Successfully reloaded ${data.length} application (/) commands.`
-      );
+      console.log(`Successfully reloaded ${data.length} application (/) commands.`);
     } catch (error) {
       console.error(error);
     }

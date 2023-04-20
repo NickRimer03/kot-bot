@@ -17,9 +17,7 @@ export default () => {
         .catch(console.error);
       await rest
         .put(Routes.applicationCommands(APPLICATION_ID), { body: [] })
-        .then(() =>
-          console.log("Successfully deleted all application commands.")
-        )
+        .then(() => console.log("Successfully deleted all application commands."))
         .catch(console.error);
     } catch (error) {
       console.error(error);
