@@ -1,17 +1,6 @@
+import path from "node:path";
 import app from "./src/app.js";
+import { config } from "dotenv";
 
-if (process.env.BUILD_MODE !== "production") {
-  Promise.all([import("dotenv"), import("path")]).then(
-    ([
-      {
-        default: { config },
-      },
-      path,
-    ]) => {
-      config({ path: path.resolve() + "/.env" });
-      app();
-    }
-  );
-} else {
-  app();
-}
+config({ path: path.resolve() + "/.env" });
+app();
